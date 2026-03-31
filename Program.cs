@@ -1,4 +1,6 @@
 using WeatherAPI.Services;
+using Microsoft.EntityFrameworkCore;
+
 namespace WeatherAPI
 {
     public class Program
@@ -13,6 +15,7 @@ namespace WeatherAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<WeatherDbContext>(options => options.UseInMemoryDatabase("WeatherDb"));
             builder.Services.AddScoped<IWeatherService, WeatherService>();
 
             var app = builder.Build();
