@@ -1,5 +1,4 @@
 using WeatherAPI.Services;
-
 namespace WeatherAPI
 {
     public class Program
